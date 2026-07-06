@@ -5,168 +5,320 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | AAA Handyman Services</title>
     <link rel="icon" type="image/jpeg" href="assets/klWye.jpg">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        header {
-            text-align: center;
-            border-bottom: 3px solid #1e40af;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        h1 {
-            color: #1e40af;
-        }
-        h2 {
-            color: #1e40af;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            gap: 12px;
-        }
-        .logo-img {
-            max-width: 150px;
-            max-height: 150px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border: 2px solid #1e40af;
-            padding: 4px;
-            background-color: #fff;
-        }
-        .logo-text {
-            font-size: 2.2em;
-            font-weight: 800;
-            color: #1e40af;
-            letter-spacing: -0.5px;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .effective-date {
-            font-style: italic;
-            color: #555;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Impact&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; }
+        .nav-link { transition: all 0.3s; }
+        .nav-link:hover { color: #dc2626; transform: translateY(-2px); }
     </style>
 </head>
-<body>
-    <header>
-        <div class="logo-container">
-            <img src="assets/klWye.jpg" alt="AAA Handyman Services Logo" class="logo-img">
-            <div class="logo-text">AAA Handyman Services</div>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 sm:py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- Logo -->
+                <img src="assets/klWye.jpg" alt="AAA Handyman Services Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-red-600">
+                <div>
+                    <a href="https://aaahandyman.services" class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-red-900 leading-tight hover:text-red-700 transition">AAA Handyman Services</a>
+                    <p class="text-[10px] sm:text-xs text-gray-500">Oakland County Michigan</p>
+                </div>
+            </div>
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex space-x-8 text-lg font-medium items-center">
+                <a href="https://aaahandyman.services/#about" class="nav-link text-gray-700 hover:text-red-600">About</a>
+                <a href="https://aaahandyman.services/#services" class="nav-link text-gray-700 hover:text-red-600">Services</a>
+                <a href="https://aaahandyman.services/#rates" class="nav-link text-gray-700 hover:text-red-600">Rates</a>
+                <a href="https://aaahandyman.services/#travel-zones" class="nav-link text-gray-700 hover:text-red-600">Service Area</a>
+                <a href="https://aaahandyman.services/#contact" class="nav-link text-gray-700 hover:text-red-600">Contact</a>
+                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="nav-link text-gray-700 hover:text-red-600 text-xl"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <!-- Nav Action Buttons -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <a href="tel:2483853432" class="bg-red-600 hover:bg-red-700 text-white p-3 sm:px-6 sm:py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition" title="Call us">
+                    <i class="fas fa-phone"></i> <span class="hidden sm:inline">‪(248) 385-3432‬</span>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-red-950 hover:text-red-600 focus:outline-none p-2 text-2xl" aria-label="Toggle Menu">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
         </div>
-        <h1>Terms of Service</h1>
-        <p class="effective-date">Effective Date: June 26, 2026</p>
-    </header>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-4 shadow-inner">
+            <a href="https://aaahandyman.services/#about" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">About</a>
+            <a href="https://aaahandyman.services/#services" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Services</a>
+            <a href="https://aaahandyman.services/#rates" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Rates</a>
+            <a href="https://aaahandyman.services/#travel-zones" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Service Area</a>
+            <a href="https://aaahandyman.services/#contact" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1">Contact</a>
+            <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="block text-lg font-medium text-gray-700 hover:text-red-600 py-1"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+    </nav>
 
-    <section>
-        <p>Welcome to AAA Handyman Services! These Terms of Service govern your use of our website <a href="https://aaahandyman.services">aaahandyman.services</a> and the handyman, repair, and home improvement services we provide in the greater Oakland County, Michigan area.</p>
-        <p>By using our website or booking services, you agree to these Terms. Please read them carefully.</p>
-    </section>
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-12 md:py-16">
+        <!-- Breadcrumb / Header Subtitle -->
+        <div class="text-center mb-8">
+            <span class="inline-block bg-red-50 text-red-700 border border-red-200 rounded-full px-4 py-1.5 text-sm font-semibold tracking-wide uppercase mb-3">
+                Legal Documentation
+            </span>
+            <h1 class="text-3xl md:text-5xl font-black text-red-950 tracking-tight mb-4">Terms of Service</h1>
+            <p class="text-sm md:text-base text-gray-500 italic">Effective Date: June 26, 2026</p>
+            <div class="w-24 h-1.5 bg-red-600 mx-auto mt-6 rounded-full"></div>
+        </div>
 
-    <section>
-        <h2>1. Our Services</h2>
-        <p>AAA Handyman Services provides general handyman work, repairs, installations, maintenance, and small construction projects. All work is performed by experienced professionals. Estimates are provided upon request, and final pricing is agreed upon before work begins.</p>
-    </section>
+        <!-- Introductory Section -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 mb-8">
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                Welcome to AAA Handyman Services! These Terms of Service govern your use of our website 
+                <a href="https://aaahandyman.services" class="text-red-600 hover:underline font-semibold">aaahandyman.services</a> 
+                and the handyman, repair, and home improvement services we provide in the greater Oakland County, Michigan area.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed">
+                By using our website or booking services, you agree to these Terms. Please read them carefully.
+            </p>
+        </section>
 
-    <section>
-        <h2>2. Estimates &amp; Pricing</h2>
-        <ul>
-            <li>Written estimates are valid for 30 days unless otherwise noted.</li>
-            <li>Final cost may vary based on unforeseen conditions discovered during the job (with your prior approval for changes).</li>
-            <li>Payment terms: 50% deposit for large projects; balance due upon completion unless other arrangements are made.</li>
-            <li>We accept cash, check, and major credit cards.</li>
-        </ul>
-    </section>
+        <!-- Terms Clauses -->
+        <div class="space-y-6">
+            <!-- 1. Our Services -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">1</span>
+                    Our Services
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    AAA Handyman Services provides general handyman work, repairs, installations, maintenance, and small construction projects. All work is performed by experienced professionals. Estimates are provided upon request, and final pricing is agreed upon before work begins.
+                </p>
+            </section>
 
-    <section>
-        <h2>3. Scheduling &amp; Cancellations</h2>
-        <ul>
-            <li>We strive to accommodate your preferred schedule.</li>
-            <li>24-hour notice is appreciated for cancellations or rescheduling.</li>
-            <li>Late cancellations or no-shows may incur a trip charge.</li>
-        </ul>
-    </section>
+            <!-- 2. Estimates & Pricing -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">2</span>
+                    Estimates &amp; Pricing
+                </h2>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Written estimates are valid for 30 days unless otherwise noted.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Final cost may vary based on unforeseen conditions discovered during the job (with your prior approval for changes).</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Payment terms: 50% deposit for large projects; balance due upon completion unless other arrangements are made.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>We accept cash, check, and major credit cards.</span>
+                    </li>
+                </ul>
+            </section>
 
-    <section>
-        <h2>4. Warranty &amp; Liability</h2>
-        <p class="important">
-            We stand behind our workmanship with a <strong>limited warranty</strong> on labor and materials for defects (typically 1 year – specific terms provided per job). Warranty does not cover misuse, normal wear and tear, or damage caused by others.
-        </p>
-        <p>Our liability is limited to the cost of the services provided. We are not responsible for pre-existing conditions or damages caused by factors outside our control.</p>
-    </section>
+            <!-- 3. Scheduling & Cancellations -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">3</span>
+                    Scheduling &amp; Cancellations
+                </h2>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-calendar-alt text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>We strive to accommodate your preferred schedule.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-bell text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>24-hour notice is appreciated for cancellations or rescheduling.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-triangle text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Late cancellations or no-shows may incur a trip charge.</span>
+                    </li>
+                </ul>
+            </section>
 
-    <section>
-        <h2>5. Customer Responsibilities</h2>
-        <ul>
-            <li>Provide clear access to the work area.</li>
-            <li>Remove personal items and valuables from the work zone.</li>
-            <li>Obtain any necessary permits if required (we can assist).</li>
-            <li>Ensure the property is safe and free of hazards for our team.</li>
-        </ul>
-    </section>
+            <!-- 4. Warranty & Liability -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">4</span>
+                    Warranty &amp; Liability
+                </h2>
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl mb-4 text-amber-900">
+                    <p class="font-semibold flex items-center gap-2 mb-1">
+                        <i class="fas fa-shield-alt"></i> Limited Warranty
+                    </p>
+                    We stand behind our workmanship with a <strong>limited warranty</strong> on labor and materials for defects (typically 1 year – specific terms provided per job). Warranty does not cover misuse, normal wear and tear, or damage caused by others.
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                    Our liability is limited to the cost of the services provided. We are not responsible for pre-existing conditions or damages caused by factors outside our control.
+                </p>
+            </section>
 
-    <section>
-        <h2>6. Website Use</h2>
-        <p>You agree not to misuse our website, attempt unauthorized access, or use it for any unlawful purpose. All content is owned by AAA Handyman Services.</p>
-    </section>
+            <!-- 5. Customer Responsibilities -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">5</span>
+                    Customer Responsibilities
+                </h2>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-door-open text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Provide clear access to the work area.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-box-open text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Remove personal items and valuables from the work zone.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-file-signature text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Obtain any necessary permits if required (we can assist).</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-user-shield text-red-600 mt-1.5 flex-shrink-0"></i>
+                        <span>Ensure the property is safe and free of hazards for our team.</span>
+                    </li>
+                </ul>
+            </section>
 
-    <section>
-        <h2>7. Privacy</h2>
-        <p>Your privacy is important to us. Please review our <a href="https://aaahandymanservices-privacy.netlify.app/">Privacy Policy</a> for details on how we collect and protect your information.</p>
-    </section>
+            <!-- 6. Website Use -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">6</span>
+                    Website Use
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    You agree not to misuse our website, attempt unauthorized access, or use it for any unlawful purpose. All content is owned by AAA Handyman Services.
+                </p>
+            </section>
 
-    <section>
-        <h2>8. Limitation of Liability</h2>
-        <p>To the fullest extent permitted by law, AAA Handyman Services shall not be liable for any indirect, incidental, special, or consequential damages arising from our services or website use.</p>
-    </section>
+            <!-- 7. Privacy -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">7</span>
+                    Privacy
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Your privacy is important to us. Please review our 
+                    <a href="https://aaahandymanservices-privacy.netlify.app/" class="text-red-600 hover:underline font-semibold">Privacy Policy</a> 
+                    for details on how we collect and protect your information.
+                </p>
+            </section>
 
-    <section>
-        <h2>9. Governing Law</h2>
-        <p>These Terms are governed by the laws of the State of Michigan. Any disputes shall be resolved in Oakland County courts.</p>
-    </section>
+            <!-- 8. Limitation of Liability -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">8</span>
+                    Limitation of Liability
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    To the fullest extent permitted by law, AAA Handyman Services shall not be liable for any indirect, incidental, special, or consequential damages arising from our services or website use.
+                </p>
+            </section>
 
-    <section>
-        <h2>10. Changes to Terms</h2>
-        <p>We may update these Terms from time to time. Continued use of our services after changes constitutes acceptance of the new Terms.</p>
-    </section>
+            <!-- 9. Governing Law -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">9</span>
+                    Governing Law
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    These Terms are governed by the laws of the State of Michigan. Any disputes shall be resolved in Oakland County courts.
+                </p>
+            </section>
 
-    <section>
-        <h2>Contact Us</h2>
-        <p>If you have questions about these Terms of Service, please contact us:</p>
-        <p><strong>AAA Handyman Services</strong><br>
-        Waterford, Michigan<br>
-        Email: <a href="terms@aaahandyman.services">terms@aaahandyman.services</a><br>
-        Phone: (248) 385-3432‬</p>
-    </section>
+            <!-- 10. Changes to Terms -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 transition hover:shadow-md">
+                <h2 class="text-xl md:text-2xl font-bold text-red-950 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-700 text-sm font-bold">10</span>
+                    Changes to Terms
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    We may update these Terms from time to time. Continued use of our services after changes constitutes acceptance of the new Terms.
+                </p>
+            </section>
 
-    <footer>
-        <p>© 2026 AAA Handyman Services. All Rights Reserved. | Quality Home Repairs Done Right.</p>
+            <!-- Contact Us -->
+            <section class="bg-gradient-to-br from-red-900 to-red-950 rounded-2xl shadow-md p-6 md:p-8 text-white">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 flex items-center gap-3 text-red-100">
+                    <i class="fas fa-envelope text-red-400"></i>
+                    Contact Us
+                </h2>
+                <p class="mb-6 text-red-200">If you have questions about these Terms of Service, please contact us:</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <p class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-red-400 mt-1 flex-shrink-0"></i>
+                            <span><strong>AAA Handyman Services</strong><br>Waterford, Michigan</span>
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <p class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-red-400 flex-shrink-0"></i>
+                            <a href="mailto:terms@aaahandyman.services" class="hover:underline hover:text-red-300 transition">terms@aaahandyman.services</a>
+                        </p>
+                        <p class="flex items-center gap-3">
+                            <i class="fas fa-phone text-red-400 flex-shrink-0"></i>
+                            <a href="tel:2483853432" class="hover:underline hover:text-red-300 transition">‪(248) 385-3432‬</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <!-- Circular Logo -->
+                <img src="assets/klWye.jpg" alt="AAA Handyman Services" class="h-16 w-16 rounded-full mx-auto object-cover border-2 border-red-600">
+            </div>
+            <p class="text-sm">&copy; 2026 AAA Handyman Services. All Rights Reserved. Michigan's $600 Handyman Law MCL 339.2403 Compliant. Locally Serving Oakland County, MI.</p>
+            <div class="mt-4 flex flex-wrap justify-center gap-4 text-xs">
+                <a href="https://aaahandymanservices-privacy.netlify.app/" target="_blank" rel="noopener" class="hover:text-white transition">Privacy Policy</a>
+                <span class="text-gray-600">|</span>
+                <a href="https://aaahandymanservices-terms.netlify.app/" target="_blank" rel="noopener" class="hover:text-white transition">Terms of Service</a>
+            </div>
+            <div class="mt-6 flex justify-center gap-6">
+                <a href="https://www.facebook.com/AAAHandymanServices" target="_blank" rel="noopener" class="text-3xl hover:text-red-500 transition"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Interactive JS scripts -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        if (menuBtn && mobileMenu && menuIcon) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.className = 'fas fa-bars';
+                } else {
+                    menuIcon.className = 'fas fa-times';
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars';
+                });
+            });
+        }
+    </script>
 </body>
 </html>
