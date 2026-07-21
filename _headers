@@ -1,0 +1,8 @@
+# Cache-Control headers for the Terms of Service page (index.html at the root)
+/
+  Cache-Control: public, max-age=0, must-revalidate
+  Netlify-CDN-Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+  Netlify-CDN-Cache-Control: public, max-age=0, must-revalidate
